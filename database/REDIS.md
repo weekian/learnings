@@ -1,7 +1,13 @@
 # Redis
 
 ## Getters, Setters and Deletes
-- SET <key> <value>
+- SET <key> <value> [EX seconds | PX milliseconds] [NX | XX] [KEEPTTL]
+  - EX: specified expire time in seconds
+  - PX: specified expire time in milliseconds
+  - NX: only set the key if it does not exist
+  - XX: only set the key if it already exist
+  - KEEPTTL: Keep the expiry timing in the event of an update to the value
+    - *only available in redis > 6.0.0*
   - Returns "OK" if successful
 - GET <key> <value>
   - If key does not exist, (nil) is returned
